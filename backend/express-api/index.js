@@ -13,10 +13,8 @@ app.use('/', express.static('static'));
 router.get('/users', require('./routes/users.js').get);
 router.post('/users', require('./routes/users.js').post);
 
-router.post('/sensors', function (req, res) {
-    console.info(req);
-    res.json({ it: 'works' });
-});
+router.get('/sensors', require('./routes/sensors.js').get);
+router.post('/sensors', require('./routes/sensors.js').post);
 
 app.use('/api', router);
 
