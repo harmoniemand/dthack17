@@ -10,11 +10,13 @@ var post = function (req, res) {
     var acc = req.body.acceleration;
     var lat = req.body.latitude;
     var long = req.body.longitude;
+    var device = req.body.device;
 
     db.push("/sensors", [{ 
         longitude: long ,
         latitude: lat,
-        acceleration: acc
+        acceleration: acc,
+        device: device
     }], false);
     res.json({ it: 'is saved'});
 };

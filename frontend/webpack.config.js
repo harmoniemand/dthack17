@@ -1,14 +1,17 @@
+var path = require("path");
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
     entry: "./src/app.js",
     output: {
-        path: __dirname,
-        filename: "./build/bundle.js"
+        path: path.join(__dirname, "build"),
+        filename: "bundle.js"
     },
     module: {
         loaders: [
-            { 
-                test: /\.css$/, 
-                loader: "style!css" 
+            {
+                test: /\.css$/,
+                loader: "style!css"
             },
             {
                 test: /\.js$/,
@@ -19,5 +22,12 @@ module.exports = {
                 }
             }
         ]
-    }
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            title: 'RODAR',
+            filename: path.join(__dirname, "build", "index.html"),
+            template: path.join(__dirname, "src", "index.html")
+        })
+    ]
 };

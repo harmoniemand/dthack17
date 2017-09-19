@@ -11,14 +11,5 @@
         }
     ],
     "sensors": [
-        {
-            "longitude": 12.123123213,
-            "acceleration": 12.231243124124
-        },
-        {
-            "longitude": 12.123123213,
-            "latitude": 12.123123213,
-            "acceleration": 12.231243124124
-        }
     ]
 }

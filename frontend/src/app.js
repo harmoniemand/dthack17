@@ -1,1 +1,2 @@
-console.log('Hello from Webpack');
+
+var angular = require('angular');
