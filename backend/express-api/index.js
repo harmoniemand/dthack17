@@ -8,7 +8,7 @@ var port = process.env.PORT || 8080;        // set our port
 
 var router = express.Router();              // get an instance of the express Router
 
-router.get('/', (req, res) => { res.json({ it: 'works' })});
+app.use('/', express.static('static'));
 
 router.get('/users', require('./routes/users.js').get);
 router.post('/users', require('./routes/users.js').post);
