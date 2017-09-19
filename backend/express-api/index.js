@@ -14,7 +14,8 @@ router.get('/users', require('./routes/users.js').get);
 router.post('/users', require('./routes/users.js').post);
 
 router.post('/sensors', function (req, res) {
-res.json({ it: 'works' });
+    console.info(req);
+    res.json({ it: 'works' });
 });
 
 app.use('/api', router);
