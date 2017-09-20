@@ -11,5 +11,17 @@
         }
     ],
     "sensors": [
+        {
+            "longitude": 7.1272061,
+            "latitude": 50.710586,
+            "acceleration": 1.25,
+            "device": "Linie 630"
+        },
+        {
+            "longitude": 7.128515,
+            "latitude": 50.706938,
+            "acceleration": 1.75,
+            "device": "Linie 636"
+        }
     ]
 }
