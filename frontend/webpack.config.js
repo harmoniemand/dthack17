@@ -8,11 +8,28 @@ module.exports = {
         filename: "bundle.js"
     },
     module: {
-        loaders: [
+        rules: [
             {
-                test: /\.css$/,
-                loader: "style!css"
+                test: /\.(png|jpg|gif)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {}
+                    }
+                ]
             },
+            {
+                test: /\.scss|css$/,
+                use: [{
+                    loader: "style-loader"
+                }, {
+                    loader: "css-loader"
+                }, {
+                    loader: "sass-loader"
+                }]
+            }
+        ],
+        loaders: [
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
