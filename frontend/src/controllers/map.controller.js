@@ -26,10 +26,21 @@ module.exports = ['$scope', '$http', function (scope, $http) {
             attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
+
         data.forEach(function (item) {
+            var str = "";
+
+            if (item.acc > 2) {
+                str = "Stärke des Schadens: <span style='color: red'>HOCH</span> <br /> Gesendet von: " + item.device;
+            } else if (item.acc > 1.5) {
+                str = "Stärke des Schadens: <span style='color: orange'>MITTEL</span> <br /> Gesendet von: " + item.device;
+            } else {
+                str = "Stärke des Schadens: <span style='color: green'>GERING</span> <br /> Gesendet von: " + item.device;
+            }
+            
             L.marker([item.lat, item.long])
                 .addTo(map)
-                .bindPopup('ACC: ' + item.acc + " - DEVICE: " + item.device)
+                .bindPopup(str)
                 .openPopup();
         });
     }, function errorCallback(response) {
