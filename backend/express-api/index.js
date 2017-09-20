@@ -1,8 +1,12 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
+var cors = require('cors');
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+app.use(cors());
 
 var port = process.env.PORT || 8080;        // set our port
 
@@ -13,10 +17,8 @@ app.use('/', express.static('static'));
 router.get('/users', require('./routes/users.js').get);
 router.post('/users', require('./routes/users.js').post);
 
-router.post('/sensors', function (req, res) {
-    console.info(req);
-    res.json({ it: 'works' });
-});
+router.get('/sensors', require('./routes/sensors.js').get);
+router.post('/sensors', require('./routes/sensors.js').post);
 
 app.use('/api', router);
 
